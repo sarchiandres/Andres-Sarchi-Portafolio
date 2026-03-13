@@ -1,0 +1,34 @@
+---
+import ExperiencieItem from "./ExperiencieItem.astro";
+
+const EXPERIENCIE = [{
+        title: "Desarrollador Fullstack | Konex Innovation",
+        description:
+            "Desarrollo y mantenimiento de aplicaciones empresariales trabajando en frontend y backend. Participación en sistemas basados en arquitectura de microservicios y estructura hexagonal, implementando nuevas funcionalidades e integraciones entre servicios.",
+        date: "Enero 2026 - Actualidad",
+    },
+    {
+        title: "Desarrollador Web | Happy Sleep",
+        description:
+            "Encargado del mantenimiento y desarrollo de proyectos web internos. Resolví bugs, desarrollé nuevas funcionalidades y gestioné el sitio principal de la empresa en WordPress. También apoyé tareas de administración y despliegue en el servidor.",
+        date: "Abril 2025 - Enero 2026",
+    },
+    {
+        title: "Desarrollador Fullstack | Freelance",
+        description:
+            "Desarrollé una aplicación web para la gestión de pedidos e inventario para pequeños comercios. Implementé funcionalidades tanto en backend como en frontend, incluyendo registro de productos, gestión de pedidos y reportes, optimizando el rendimiento y la experiencia de usuario.",
+        date: "Junio 2023 - Enero 2025",
+    },
+
+];
+---
+
+<ol class="relative border-s border-whitedark:border-white ml-3">
+    {
+        EXPERIENCIE.map((experiencie: any) => (
+            <li class="mb-10 ms-4">
+                <ExperiencieItem {...experiencie} />
+            </li>
+        ))
+    }
+</ol>

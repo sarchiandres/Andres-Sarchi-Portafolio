@@ -1,0 +1,112 @@
+---
+import GitHubIcon from "../Icons/GitHubIcon.astro";
+import GmailIcon from "../Icons/GmailIcon.astro";
+import Linkedin from "../Icons/Linkedin.astro";
+import SocialPill from "./SocialPill.astro";
+---
+
+<header class="w-full fixed top-0 z-50 bg-[#050505]">
+    <div
+        class="flex items-center justify-center max-w-[1120px] mx-auto px-6 py-5"
+    >
+        
+        <button id="menu-toggle" class="sm:hidden text-white">
+            <svg
+                class="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+
+    
+        <nav class="hidden sm:flex gap-10 text-white justify-center">
+            <a href="#top">Inicio</a>
+            <a href="#experiencia">Experiencia</a>
+            <a href="#sobre-mi">Sobre mi</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </div>
+</header>
+
+
+<div id="overlay" class="fixed inset-0 bg-black/60 hidden z-40"></div>
+
+
+<nav
+    id="mobile-menu"
+    class="fixed top-0 right-0 h-screen w-1/2 bg-black transform translate-x-full transition-transform duration-300 z-50 flex flex-col justify-between p-10"
+>
+    <div class="flex flex-col gap-8 text-xl text-white font-medium">
+        <a class="nav-link" href="#top">Inicio</a>
+        <a class="nav-link" href="#experiencia">Experiencia</a>
+        <a class="nav-link" href="#sobre-mi">Sobre mi</a>
+        <a class="nav-link" href="#proyectos">Proyectos</a>
+        <a class="nav-link" href="#contacto">Contacto</a>
+    </div>
+
+    <div class="flex flex-col gap-4 text-gray-400 text-sm">
+        <ul class="flex flex-wrap gap-4 mt-8">
+            <li>
+                <SocialPill
+                    href="https://www.linkedin.com/in/andres-felipe-sarchi-valencia-836b5b353"
+                    target="_blank"
+                >
+                    <Linkedin class="size-4" />
+                </SocialPill>
+            </li>
+            <li>
+                <SocialPill
+                    href="https://github.com/sarchiandres"
+                    target="_blank"
+                >
+                    <GitHubIcon class="size-4" />
+                </SocialPill>
+            </li>
+            <li>
+                <SocialPill
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=andressarchi63@gmail.com"
+                    target="_blank"
+                >
+                    <GmailIcon class="size-4" />
+                </SocialPill>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("mobile-menu");
+    const overlay = document.getElementById("overlay");
+
+    function openMenu() {
+        if (menu && overlay) {
+            menu.classList.remove("translate-x-full");
+            overlay.classList.remove("hidden");
+        }
+    }
+
+    function closeMenu() {
+        if (menu && overlay) {
+            menu.classList.add("translate-x-full");
+            overlay.classList.add("hidden");
+        }
+    }
+
+    toggle?.addEventListener("click", openMenu);
+    overlay?.addEventListener("click", closeMenu);
+
+    
+    const navLinks = document.querySelectorAll(".nav-link");
+    navLinks.forEach((link) => {
+        link.addEventListener("click", closeMenu);
+    });
+</script>

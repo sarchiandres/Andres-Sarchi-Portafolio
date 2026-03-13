@@ -1,0 +1,123 @@
+---
+import GitHubIcon from "../Icons/GitHubIcon.astro";
+import ReactIcon from "../Icons/ReactIcon.astro";
+import SpringIcon from "../Icons/Spring.astro";
+import MySqlIcon from "../Icons/MySql.astro";
+import TypeScriptIcon from "../Icons/TypeScriptIcon.astro";
+import Tailwind from "../Icons/Tailwind.astro"; 
+const TAGS = {
+    REACT :{
+        name: "React",
+        color: "bg-blue-500",
+        icon : ReactIcon
+    },
+    SPRING :{
+        name: "SpringBoot",
+        color: "bg-green-500",
+        icon : SpringIcon
+    },
+    MYSQL :{
+        name: "MySQL",
+        color: "bg-blue-500",
+        icon : MySqlIcon
+    },
+    TYPESCRIPT :{
+        name: "TypeScript",
+        color: "bg-blue-500",
+        icon : TypeScriptIcon
+    },
+    TAILWIND :{
+        name: "Tailwind",
+        color: "bg-blue-500",
+        icon : Tailwind
+    },
+    
+}
+
+
+const PROYECTS = [
+    {
+        title: "FinZen",
+        description: "Descripción del proyecto 1",
+        image: "/src/assets/Finzen.png",
+        link: "https://fin-zeenn.vercel.app/",
+        github: "https://github.com/sarchiandres/finzenBackend",
+        tags: [TAGS.REACT, TAGS.SPRING, TAGS.MYSQL, TAGS.TYPESCRIPT, TAGS.TAILWIND],
+    },
+];
+---
+
+{
+    PROYECTS.map(({ image, title, description, tags, link, github }) => (
+        <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0 mb-20 py-20">
+            <div class="w-full md:w-1/2">
+                <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+                    <img alt={title} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-100" loading="lazy" src={image} />
+                </div>
+            </div>
+
+            <div class="w-full md:w-1/2 md:max-w-lg">
+                <h3 class="text-2xl font-bold text-blue-300 mb-2">
+                    {title}
+                </h3>
+                <div class="flex flex-wrap mt-2">
+                    <ul class="flex flex-row flex-wrap mb-2 gap-2">
+                        {tags.map((tag) => (
+                            <li>
+                                <span
+                                    class={`flex gap-x-2 rounded-full border border-white/10 text-xs py-1 px-2 justify-center items-center bg-white/15`}
+                                >
+                                    <tag.icon class="size-4" />
+                                    {tag.name}
+                                </span>
+                            </li>
+                        ))}
+                    </ul>
+
+                    <div class="mt-2 text-gray-400 dark:text-gray-400">{description}</div>
+                    <footer class="flex items-end justify-start mt-4 gap-x-4">
+                        {github && (
+                            <a
+                                href={github}
+                                role="link"
+                                class="inline-flex items-center justify-center gap-2 px-3 py-1 text-base text-white transition bg-gray-800 border border-gray-600 focus-content:ring-4 focus-content:outline-none focus-content:ring-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 group max-w-fit rounded-xl hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
+                                target="_blank"
+                            >
+                                <GitHubIcon class="size-4" />
+                                Codigo
+                            </a>
+                        )}
+                        {link && (
+                            <a
+                                href={link}
+                                role="link"
+                                class="inline-flex items-center justify-center gap-2 px-3 py-1 text-base text-white transition bg-gray-800 border border-gray-600 focus-content:ring-4 focus-content:outline-none focus-content:ring-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 dark:hover:border-gray-600 group max-w-fit rounded-xl hover:text-white focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
+
+                                target="_blank"
+                            >
+                                <svg
+                                    class="size-4"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <>
+                                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                                    </>
+                                </svg>
+                                Visitar
+                            </a>
+                        )}
+                    </footer>
+                </div>
+            </div>
+        </article>
+    ))
+}

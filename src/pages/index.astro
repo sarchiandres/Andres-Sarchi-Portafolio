@@ -1,11 +1,88 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+import { Image } from "astro:assets";
+import sarchiImg from "../assets/sarchi.jpg";
+import Linkedin from "../Icons/Linkedin.astro";
+import SocialPill from "../components/SocialPill.astro";
+import GitHubIcon from "../Icons/GitHubIcon.astro";
+import GmailIcon from "../Icons/GmailIcon.astro";
+import Experiencie from "../components/Experiencie.astro";
+import WorkIcon from "../Icons/WorkIcon.astro";
+import Proyects from "../components/Proyects.astro";
+import Code from "../Icons/Code.astro";
 ---
 
 <Layout>
-	<Welcome />
+    <main class="w-full max-w-[1120px] mx-auto px-4 sm:px-8 py-8 sm:py-24">
+        <section class="w-full max-w-[740px] mx-auto py-10">
+            <Image
+                class="rounded-full w-17 h-17 object-cover border-2 border-transparent hover:border-gray-500 transition-all shadow-lg mb-6"
+                src={sarchiImg}
+                alt="sarchi-foto"
+            />
+
+            <h1
+                class="text-white text-3xl sm:text-5xl font-bold flex flex-wrap gap-4 items-center mb-6 pb-6"
+            >
+                Hey, soy Andres Sarchi
+                <a
+                    href="https://www.linkedin.com/in/andres-felipe-sarchi-valencia-836b5b353"
+                    target="_blank"
+                    rel="noopener"
+                    class="flex justify-center items-center"
+                >
+                    <Badge>Disponible para trabajar</Badge>
+                </a>
+            </h1>
+            <h2
+                class="text-xl sm:text-2xl text-gray-300 max-w-[800px] leading-relaxed"
+            >
+                <span class="text-yellow-200">+3 años de experiencia.</span> Desarrollador
+                Fullstack enfocado en la construcción de aplicaciones web modernas
+                y escalables. De Armenia, Quindío - Colombia 🇨🇴. Me especializo en
+                diseñar soluciones eficientes, desarrollar sistemas robustos y crear
+                experiencias digitales que combinan rendimiento, funcionalidad y una
+                interfaz intuitiva.
+            </h2>
+            <ul class="flex flex-wrap gap-4 mt-8">
+                <li>
+                    <SocialPill
+                        href="https://www.linkedin.com/in/andres-felipe-sarchi-valencia-836b5b353"
+                        target="_blank"
+                    >
+                        <Linkedin class="size-4" />
+                        LinkedIn
+                    </SocialPill>
+                </li>
+                <li>
+                    <SocialPill
+                        href="https://github.com/sarchiandres"
+                        target="_blank"
+                    >
+                        <GitHubIcon class="size-4" />
+                        GitHub
+                    </SocialPill>
+                </li>
+                <li>
+                    <SocialPill
+                        href="https://mail.google.com/mail/?view=cm&fs=1&to=andressarchi63@gmail.com"
+                        target="_blank"
+                    >
+                        <GmailIcon class="size-4" />
+                        andressarchi63@gmail.com
+                    </SocialPill>
+                </li>
+            </ul>
+        </section>
+
+        <section id="experiencia" class="w-full max-w-[740px] mx-auto py-20">
+            <WorkIcon>Experiencia laboral</WorkIcon>
+            <Experiencie />
+        </section>
+        <section id="proyectos" class="w-full max-w-[740px] mx-auto py-20">
+            <Code>Proyectos</Code>
+            <Proyects />
+        </section>
+    </main>
 </Layout>

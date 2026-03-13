@@ -1,23 +1,64 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import "@fontsource-variable/onest";
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = "Andres Sarchi | Portfolio",
+	description = "Andres Sarchi, Desarrollador Fullstack. De Armenia, Quindío - Colombia.",
+} = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
-	<body>
+	<body id="top">
+		<div
+			class="fixed inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"
+		>
+		</div>
+		<Header />
 		<slot />
+		<style is:global>
+			:root {
+				--color-primary: #050505;
+				color-scheme: light dark;
+			}
+
+			html {
+				font-family: "Onest Variable", system-ui, sans-serif;
+				scroll-behavior: smooth;
+			}
+
+			[id] {
+				scroll-margin-top: 100px;
+			}
+
+			body {
+				display: flex;
+				flex-direction: column;
+				background-color: var(--color-primary);
+				color: #ffffff;
+				min-height: 100vh;
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				html {
+					scroll-behavior: auto;
+				}
+			}
+		</style>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

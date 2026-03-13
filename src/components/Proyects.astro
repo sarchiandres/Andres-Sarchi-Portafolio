@@ -5,6 +5,7 @@ import SpringIcon from "../Icons/Spring.astro";
 import MySqlIcon from "../Icons/MySql.astro";
 import TypeScriptIcon from "../Icons/TypeScriptIcon.astro";
 import Tailwind from "../Icons/Tailwind.astro"; 
+import finzenImg from "../assets/Finzen.png";
 const TAGS = {
     REACT :{
         name: "React",
@@ -39,7 +40,7 @@ const PROYECTS = [
     {
         title: "FinZen",
         description: "Descripción del proyecto 1",
-        image: "/src/assets/Finzen.png",
+        image:finzenImg,
         link: "https://fin-zeenn.vercel.app/",
         github: "https://github.com/sarchiandres/finzenBackend",
         tags: [TAGS.REACT, TAGS.SPRING, TAGS.MYSQL, TAGS.TYPESCRIPT, TAGS.TAILWIND],
@@ -52,7 +53,7 @@ const PROYECTS = [
         <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0 mb-20 py-20">
             <div class="w-full md:w-1/2">
                 <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-                    <img alt={title} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-100" loading="lazy" src={image} />
+                    <img alt={title} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-100" loading="lazy" src={image.src} />
                 </div>
             </div>
 

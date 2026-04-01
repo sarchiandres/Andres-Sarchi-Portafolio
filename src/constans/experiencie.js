@@ -2,7 +2,7 @@ export const EXPERIENCIE = [{
         title: "Desarrollador Fullstack | Konex Innovation",
         description:
             "Desarrollo y mantenimiento de aplicaciones empresariales trabajando en frontend y backend. Participación en sistemas basados en arquitectura de microservicios y estructura hexagonal, implementando nuevas funcionalidades e integraciones entre servicios.",
-        date: "Enero 2026 - Actualidad",
+        date: "Enero 2026 - Abril 2026",
     },
     {
         title: "Desarrollador Web | Happy Sleep",
